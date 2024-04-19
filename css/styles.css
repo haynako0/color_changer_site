@@ -7,7 +7,7 @@ body {
     color: white;
 }
 
-body, html, .container {
+body, html {
     height: 100%;
 }
 
@@ -21,7 +21,9 @@ body, html, .container {
     z-index: -1;
 }
 
-.dropdown-toggle::after {
+.dropdown-toggle::after,
+.play-music-btn::after,
+.hide-ui-btn::after {
     content: '▼';
     font-size: 12px;
     margin-left: 5px;
@@ -29,7 +31,9 @@ body, html, .container {
     display: block;
 }
 
-.dropdown-toggle {
+.dropdown-toggle,
+.play-music-btn,
+.hide-ui-btn {
     text-transform: uppercase;
     font-weight: bold;
     border: none;
@@ -41,7 +45,9 @@ body, html, .container {
     outline: none; 
 }
 
-.dropdown-toggle:focus {
+.dropdown-toggle:focus,
+.play-music-btn:focus,
+.hide-ui-btn:focus {
     outline: none;
 }
 
@@ -50,16 +56,32 @@ body, html, .container {
     border: none;
 }
 
-.dropdown-item {
+.dropdown-item,
+.play-music-btn,
+.hide-ui-btn {
     font-size: 14px;
     color: #fff; 
 }
 
-.dropdown-item:hover {
-    color: #000;
+.dropdown-item:focus,
+.play-music-btn:focus,
+.hide-ui-btn:focus {
+    background-color: transparent;
 }
 
-.dropdown-item:focus {
-    background-color: transparent !important;
-    color: #000 !important;
+.hide-ui-btn {
+    opacity: 1;
+}
+
+.ui-hidden .btn:not(.hide-ui-btn) {
+    display: none;
+}
+
+.ui-hidden .hide-ui-btn {
+    opacity: 0.33;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
 }
